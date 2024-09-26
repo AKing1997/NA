@@ -26,7 +26,6 @@ mod security_token {
         },
         methods {
             price_per_token => PUBLIC;
-            get_addresses => restrict_to: [admin];
             create_identity_manager => restrict_to: [admin];
             create_identity_agent => restrict_to: [manager, admin];
             create_identity_client => restrict_to: [agent, manager, admin];
@@ -49,7 +48,9 @@ mod security_token {
     }
 
     impl SecurityToken {
-        pub fn new(price_per_token: Decimal, radix_token_address: ResourceAddress) -> (Global<SecurityToken>, Bucket) {
+        pub fn new(price_per_token: Decimal) -> (Global<SecurityToken>, Bucket) {
+
+            
             let (address_reservation, component_address) = Runtime::allocate_component_address(SecurityToken::blueprint_id());
 
             let owner_badge: Bucket = ResourceBuilder::new_fungible(OwnerRole::None)
@@ -63,7 +64,7 @@ mod security_token {
             let agent_badge_manager = Self::create_badge("Identity Agent", component_address);
             let client_badge_manager = Self::create_badge("Identity Client", component_address);
 
-            let xrd_vault = Vault::new(radix_token_address);
+            let xrd_vault = Vault::new(XRD);
 
             let secure_token = ResourceBuilder::new_fungible(OwnerRole::None)
             .metadata(metadata!(init {
@@ -157,15 +158,6 @@ mod security_token {
             (global_identity, owner_badge)
         }
 
-        pub fn get_addresses(&self) -> HashMap<String, ResourceAddress> {
-            let mut addresses = HashMap::new();
-            addresses.insert("Manager Badge Address".to_string(), self.manager_badge_manager.address());
-            addresses.insert("Agent Badge Address".to_string(), self.agent_badge_manager.address());
-            addresses.insert("Client Badge Address".to_string(), self.client_badge_manager.address());
-            addresses.insert("XRD Vault Address".to_string(), self.xrd_vault.resource_address());
-            addresses
-        }
-        
         pub fn mint_real_world_asset_fungible(
             &self,
             name: String,
