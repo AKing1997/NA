@@ -1,1 +1,3 @@
 # NA
+
+set account resim set-default-account account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma 1e852558fdd66254d78b7afbfb22555aaeaeb87bbf0c6ef717f618472a9530bc resource_sim1nfzf2h73frult99zd060vfcml5kncq3mxpthusm9lkglvhsr0guahy:#1#
