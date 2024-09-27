@@ -1,0 +1,10 @@
+CALL_METHOD 
+    Address("your_component_address")
+    "exchange_xrd_for_secure_token" 
+    Bucket(12345u32); // You can replace 12345u32 with the relevant ID of the Bucket that carries the amount of XRD.
+
+CALL_METHOD
+    Address("you_account_address")
+    "deposit_batch"
+    Expression("ENTIRW_WORKTOP")
+    ;
