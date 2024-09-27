@@ -1,0 +1,8 @@
+CALL_METHOD 
+    Address("your_component_address")
+    "create_identity_client" 
+    String("identity_id_value") 
+    String("YourName") 
+    String("YourLastName") 
+    Bucket("manager_account_bucket_reference")
+    ;
