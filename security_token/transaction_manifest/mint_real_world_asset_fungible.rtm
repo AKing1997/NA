@@ -1,0 +1,15 @@
+CALL_FUNCTION
+    Address("package_tdx_2_1p4tldmvcl97wz3wqux05qgr3ts69nh2zkyf68t9lfqhfmclcr75l57")
+    "mint_real_world_asset_fungible"
+    String("House California")
+    String("identity_real_state_124587554")
+    String("Some Detaile its about asset")
+    Decimal("5000")
+    Decimal("10")
+    ;
+
+CALL_METHOD
+    Address("account_tdx_2_128y6np54e437gdd6n2zjzz3kqqppn5r8fg39nmpfpqg3xlyesznap9")
+    "deposit_batch"
+    Expression("ENTIRW_WORKTOP")
+    ;
