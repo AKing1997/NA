@@ -2,12 +2,11 @@ CALL_FUNCTION
     Address("package_tdx_2_1p4tldmvcl97wz3wqux05qgr3ts69nh2zkyf68t9lfqhfmclcr75l57") 
     "SecurityToken"
     "new"
-    Decimal("100")
+    Decimal("Set price of exchange xrd per sercurity token")
     ;
 
 //pass user account address
 CALL_METHOD
-    Address("component_sim1cptxxxxxxxxxfaucetxxxxxxxxx000527798379xxxxxxxxxhkrefh")
-    "lock_fee"
-    Decimal("5000")
-;
+    Address("YOUR_ADDRESS")
+    "deposit_batch"
+    Expression("ENTIRW_WORKTOP");
