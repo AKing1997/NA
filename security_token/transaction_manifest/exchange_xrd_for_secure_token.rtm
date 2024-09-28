@@ -1,10 +1,35 @@
-CALL_METHOD 
-    Address("your_component_address")
-    "exchange_xrd_for_secure_token" 
-    Bucket(12345u32); // You can replace 12345u32 with the relevant ID of the Bucket that carries the amount of XRD.
-
 CALL_METHOD
-    Address("you_account_address")
-    "deposit_batch"
-    Expression("ENTIRW_WORKTOP")
-    ;
+    Address("component_sim1cptxxxxxxxxxfaucetxxxxxxxxx000527798379xxxxxxxxxhkrefh")
+    "lock_fee"
+    Decimal("5000")
+;
+CALL_METHOD
+    Address("account_sim1c8j8flpjyldg7xsympnx6h50scc4tughsasyh8wx3zc8gs5mn6qpl7")
+    "create_proof_of_non_fungibles"
+    Address("resource_sim1nf3s9fljcn80d6wqngl0t2pmm57nnzejg72y7xxey6dfwwq0s0y7tj")
+    Array<NonFungibleLocalId>(
+        NonFungibleLocalId("<identity_client_12040612>")
+    )
+;
+CALL_METHOD
+    Address("account_sim1c8j8flpjyldg7xsympnx6h50scc4tughsasyh8wx3zc8gs5mn6qpl7")
+    "withdraw"
+    Address("resource_sim1tknxxxxxxxxxradxrdxxxxxxxxx009923554798xxxxxxxxxakj8n3")
+    Decimal("2000")
+;
+TAKE_FROM_WORKTOP
+    Address("resource_sim1tknxxxxxxxxxradxrdxxxxxxxxx009923554798xxxxxxxxxakj8n3")
+    Decimal("2000")
+    Bucket("bucket1")
+;
+CALL_METHOD
+    Address("component_sim1cpwu4wc6rg0am8l9prnh2lzqkk6hue6stzqhdx48rzvek2mmm5vp0p")
+    "exchange_xrd_for_secure_token"
+    Bucket("bucket1")
+;
+CALL_METHOD
+    Address("account_sim1c8j8flpjyldg7xsympnx6h50scc4tughsasyh8wx3zc8gs5mn6qpl7")
+    "try_deposit_batch_or_refund"
+    Expression("ENTIRE_WORKTOP")
+    Enum<0u8>()
+;

@@ -1,8 +1,27 @@
-CALL_METHOD 
-    Address("your_component_address")
-    "create_identity_client" 
-    String("identity_id_value") 
-    String("YourName") 
-    String("YourLastName") 
-    Bucket("manager_account_bucket_reference")
-    ;
+CALL_METHOD
+    Address("component_sim1cptxxxxxxxxxfaucetxxxxxxxxx000527798379xxxxxxxxxhkrefh")
+    "lock_fee"
+    Decimal("5000")
+;
+CALL_METHOD
+    Address("account_sim1c9wnjpahqj6yllx6phz74du0hl3sf99jq9ht2zr406puna2e60es57")
+    "create_proof_of_non_fungibles"
+    Address("resource_sim1n2cev47f2hh3vd7h4pyulzsjdshdz9qrs24js9t62rlzugdrqv28ql")
+    Array<NonFungibleLocalId>(
+        NonFungibleLocalId("<identity_agent_12040628>")
+    )
+;
+CALL_METHOD
+    Address("component_sim1cpwu4wc6rg0am8l9prnh2lzqkk6hue6stzqhdx48rzvek2mmm5vp0p")
+    "create_identity_client"
+    "identity_client_12040612"
+    "Habibi"
+    "Alibaba"
+    Address("account_sim1c8j8flpjyldg7xsympnx6h50scc4tughsasyh8wx3zc8gs5mn6qpl7")
+;
+CALL_METHOD
+    Address("account_sim1c9wnjpahqj6yllx6phz74du0hl3sf99jq9ht2zr406puna2e60es57")
+    "try_deposit_batch_or_refund"
+    Expression("ENTIRE_WORKTOP")
+    Enum<0u8>()
+;

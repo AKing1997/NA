@@ -1,8 +1,27 @@
-CALL_METHOD 
-    Address("your_component_address")
-    "create_identity_agent" 
-    String("identity_id_value") 
-    String("YourName") 
-    String("YourLastName") 
-    Bucket("manager_account_bucket_reference")
-    ;
+CALL_METHOD
+    Address("component_sim1cptxxxxxxxxxfaucetxxxxxxxxx000527798379xxxxxxxxxhkrefh")
+    "lock_fee"
+    Decimal("5000")
+;
+CALL_METHOD
+    Address("account_sim1c9yeaya6pehau0fn7vgavuggeev64gahsh05dauae2uu25njk224xz")
+    "create_proof_of_non_fungibles"
+    Address("resource_sim1n28et5yv5srl909chc9x4dgav32f50rmw4mujuq2trws9xc4kfr6pl")
+    Array<NonFungibleLocalId>(
+        NonFungibleLocalId("<identity_manager_12040627>")
+    )
+;
+CALL_METHOD
+    Address("component_sim1cpwu4wc6rg0am8l9prnh2lzqkk6hue6stzqhdx48rzvek2mmm5vp0p")
+    "create_identity_agent"
+    "identity_agent_12040628"
+    "Maria"
+    "Ortega"
+    Address("account_sim1c9wnjpahqj6yllx6phz74du0hl3sf99jq9ht2zr406puna2e60es57")
+;
+CALL_METHOD
+    Address("account_sim1c9yeaya6pehau0fn7vgavuggeev64gahsh05dauae2uu25njk224xz")
+    "try_deposit_batch_or_refund"
+    Expression("ENTIRE_WORKTOP")
+    Enum<0u8>()
+;
