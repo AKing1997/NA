@@ -54,8 +54,8 @@ Before running the project, ensure you have the following:
 ### Steps to Deploy
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/security-token-erc3643-radix.git
-    cd security-token-erc3643-radix
+    git clone https://github.com/AKing1997/NA.git
+    cd NA
     ```
 
 2. Compile the Blueprint: Ensure you are in the root of the project directory, and run:
